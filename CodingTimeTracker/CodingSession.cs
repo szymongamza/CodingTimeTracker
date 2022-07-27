@@ -12,14 +12,14 @@ namespace CodingTimeTracker
         {
             StartTime = startTime;
             EndTime = endTime;
-            Duration = CalculateTime(startTime, endTime);
+            Duration = CalculateDuration(startTime, endTime);
         }
 
         public int Id { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public TimeSpan Duration { get; set; }
-        private TimeSpan CalculateTime(DateTime startTime, DateTime endTime)
+        private TimeSpan CalculateDuration(DateTime startTime, DateTime endTime)
         {
             TimeSpan duration = endTime - startTime;
             return duration;
