@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CodingTimeTracker
 {
-    public class CodingSession
+    public class CodingSessionModel
     {
-        public CodingSession(DateTime startTime, DateTime endTime)
+        public CodingSessionModel(DateTime startTime, DateTime endTime)
         {
             StartTime = startTime;
             EndTime = endTime;
