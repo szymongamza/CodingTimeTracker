@@ -55,6 +55,32 @@ namespace CodingTimeTracker
                 }
             }
         }
+        public List<CodingSessionModel> GetAllRecords()
+        {
+            using (var connection = new SqliteConnection(_connectionString))
+            {
+                using (var command = connection.CreateCommand())
+                {
+                    connection.Open();
+                    command.CommandText = $"SELECT * FROM time_stamps";
+                    List<CodingSessionModel> tableData = new();
+                    SqliteDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            tableData.Add(
+                                new CodingSessionModel(reader.GetInt32(0), DateTime.Parse(reader.GetString(1)), DateTime.Parse(reader.GetString(2))));
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No data found.");
+                    }
+                    return tableData;
+                }
+            }
+        }
 
     }
 }

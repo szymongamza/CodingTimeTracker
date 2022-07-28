@@ -13,6 +13,13 @@ namespace CodingTimeTracker
             StartTime = startTime;
             EndTime = endTime;
             Duration = CalculateDuration(startTime, endTime);
+        }   
+        public CodingSessionModel(int id, DateTime startTime, DateTime endTime)
+        {
+            Id = id;
+            StartTime = startTime;
+            EndTime = endTime;
+            Duration = CalculateDuration(startTime, endTime);
         }
 
         public int Id { get; set; }
