@@ -9,6 +9,7 @@ namespace CodingTimeTracker
     public class UserInterface
     {
         InputManager inputManager = new InputManager();
+        ValidationInput validationInput = new ValidationInput();
 
         public UserInterface()
         {
@@ -31,20 +32,7 @@ namespace CodingTimeTracker
                 Console.WriteLine("|    Type 4 to UPDATE coding time record      |");
                 Console.WriteLine("+---------------------------------------------+");
 
-                var input = Console.ReadLine();
-                int option = -1;
-                while (input == null)
-                {
-                    input = Console.ReadLine();
-                }
-                try
-                {
-                    option = int.Parse(input);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                int option = validationInput.IntInput("Choose option from above menu.");
                 switch (option)
                 {
                     case 0:
@@ -67,6 +55,9 @@ namespace CodingTimeTracker
                         Console.Clear();
                         inputManager.GetData();
                         inputManager.UpdateData();
+                        break;
+                    case 5:
+                        Console.Clear();
                         break;
                     default:
                         Console.Clear();
