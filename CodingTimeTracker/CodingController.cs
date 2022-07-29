@@ -81,6 +81,34 @@ namespace CodingTimeTracker
                 }
             }
         }
+        public void UpdateRecord(int id, string startDate, string endDate)
+        {
+            using (var connection = new SqliteConnection(_connectionString))
+            {
+                using (var command = connection.CreateCommand())
+                {
+                    connection.Open();
+                    command.CommandText = $"UPDATE time_stamps SET StartDate = \"{startDate}\", EndDate = \"{endDate}\" WHERE Id = {id}";
+                    try
+                    {
+                        int rowAffected = command.ExecuteNonQuery();
+                        if (rowAffected == 0)
+                        {
+                            Console.WriteLine($"There was no record with Id: {id}");
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine($"Id: {id} has been updated.");
+                        }
+                    }
+                    catch (SqliteException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+        }
 
     }
 }
