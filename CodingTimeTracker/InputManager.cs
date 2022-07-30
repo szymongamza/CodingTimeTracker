@@ -18,6 +18,12 @@ namespace CodingTimeTracker
             string endTime = validationInput.DateTimeInput("end time of coding");
             codingController.InsertRecord(startTime, endTime);
         }
+        public void InsertData(DateTime startTimeDT,DateTime endTimeDT)
+        {
+            string startTime = startTimeDT.ToString();
+            string endTime = endTimeDT.ToString();
+            codingController.InsertRecord(startTime, endTime);
+        }
         public void GetData()
         {
             List<CodingSessionModel> listOfCodingSessions = codingController.GetAllRecords();

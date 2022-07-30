@@ -10,6 +10,7 @@ namespace CodingTimeTracker
     {
         InputManager inputManager = new InputManager();
         ValidationInput validationInput = new ValidationInput();
+        CodingStopwatch codingStopwatch = new CodingStopwatch();
 
         public UserInterface()
         {
@@ -57,6 +58,7 @@ namespace CodingTimeTracker
                         inputManager.UpdateData();
                         break;
                     case 5:
+                        codingStopwatch.StopWatchMenu();
                         Console.Clear();
                         break;
                     default:
