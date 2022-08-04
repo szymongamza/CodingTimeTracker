@@ -27,8 +27,8 @@ Developed using C#, SQLite and ADO.NET
  	- IMAGE HERE!
 
 * Stopwatch feature:
-  - You can start/stop stopwatch which will store passed time.
-  - It shows time in console in real time.
+  - To expand on this project, add the possibility of tracking the coding time via a stopwatch so the user can either enter the start and end times manually or track the session as it happens.
+  - It shows actual stopwatch time in console in real time.
 
 # Resources Used
 - MS docs ;)
